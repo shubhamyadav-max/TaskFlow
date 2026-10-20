@@ -42,7 +42,7 @@ CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT} --workers 1 --threads 4 -
 # ---------- Optional: test image (docker build --target test .) ----------
 FROM runtime AS test
 USER root
-COPY requirements-dev.txt test_app.py ./
+COPY requirements.txt requirements-dev.txt test_app.py ./
 RUN pip install -r requirements-dev.txt
 USER app
 CMD ["pytest", "-v"]
